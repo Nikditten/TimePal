@@ -14,6 +14,8 @@
 		854B67122A584FDC00BD0F39 /* TimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B67112A584FDC00BD0F39 /* TimeEvent.swift */; };
 		854B67152A5850DA00BD0F39 /* DataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B67142A5850DA00BD0F39 /* DataSourceType.swift */; };
 		8554726D2A5999490034C46A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554726C2A5999490034C46A /* Color+Extensions.swift */; };
+		85C9D2082A5C6A1800BACC6F /* PinnedTimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9D2072A5C6A1800BACC6F /* PinnedTimeEvent.swift */; };
+		85C9D20A2A5C6A5A00BACC6F /* ListedTimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9D2092A5C6A5A00BACC6F /* ListedTimeEvent.swift */; };
 		85CB8E9E2A58AB59003B18B5 /* AddTimeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8E9D2A58AB59003B18B5 /* AddTimeEventView.swift */; };
 		85CB8EA12A58AD7F003B18B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8EA02A58AD7F003B18B5 /* CustomTextField.swift */; };
 		85CB8EA42A58AFDF003B18B5 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8EA32A58AFDF003B18B5 /* UIScreen+Extensions.swift */; };
@@ -33,6 +35,8 @@
 		854B67112A584FDC00BD0F39 /* TimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEvent.swift; sourceTree = "<group>"; };
 		854B67142A5850DA00BD0F39 /* DataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceType.swift; sourceTree = "<group>"; };
 		8554726C2A5999490034C46A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		85C9D2072A5C6A1800BACC6F /* PinnedTimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedTimeEvent.swift; sourceTree = "<group>"; };
+		85C9D2092A5C6A5A00BACC6F /* ListedTimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListedTimeEvent.swift; sourceTree = "<group>"; };
 		85CB8E9D2A58AB59003B18B5 /* AddTimeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEventView.swift; sourceTree = "<group>"; };
 		85CB8EA02A58AD7F003B18B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		85CB8EA32A58AFDF003B18B5 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		85CB8E9F2A58AD6D003B18B5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				85C9D2072A5C6A1800BACC6F /* PinnedTimeEvent.swift */,
+				85C9D2092A5C6A5A00BACC6F /* ListedTimeEvent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 			files = (
 				854B67152A5850DA00BD0F39 /* DataSourceType.swift in Sources */,
 				85EEBA1F2A582CC800B010E5 /* TimePal.xcdatamodeld in Sources */,
+				85C9D2082A5C6A1800BACC6F /* PinnedTimeEvent.swift in Sources */,
 				85EEBA1C2A582CC800B010E5 /* Persistence.swift in Sources */,
 				854409802A5C1F0100517F42 /* Date+Extensions.swift in Sources */,
 				85EEBA152A582CC700B010E5 /* ContentView.swift in Sources */,
+				85C9D20A2A5C6A5A00BACC6F /* ListedTimeEvent.swift in Sources */,
 				854B670F2A584F8C00BD0F39 /* DataSource.swift in Sources */,
 				85EEBA132A582CC700B010E5 /* TimePalApp.swift in Sources */,
 				85CB8E9E2A58AB59003B18B5 /* AddTimeEventView.swift in Sources */,

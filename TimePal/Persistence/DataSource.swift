@@ -143,7 +143,6 @@ extension DataSource {
         case .failure(_):
             print("Couldn't fetch TimeEventMO to save")
         }
-        
         saveData()
     }
     
@@ -176,6 +175,7 @@ extension DataSource {
         timeEventMO.date = timeEvent.date
         timeEventMO.isStreak = timeEvent.isStreak
         timeEventMO.color = timeEvent.color
+        timeEventMO.isPinned = timeEvent.isPinned
     }
     
     private func getTimeEventMO(from timeEvent: TimeEvent?) -> TimeEventMO? {
