@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8544097E2A5C03C800517F42 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8544097D2A5C03C800517F42 /* Binding+Extensions.swift */; };
+		854409802A5C1F0100517F42 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8544097F2A5C1F0100517F42 /* Date+Extensions.swift */; };
+		854409822A5C1FC900517F42 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854409812A5C1FC900517F42 /* Int+Extensions.swift */; };
+		854B670F2A584F8C00BD0F39 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B670E2A584F8C00BD0F39 /* DataSource.swift */; };
+		854B67122A584FDC00BD0F39 /* TimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B67112A584FDC00BD0F39 /* TimeEvent.swift */; };
+		854B67152A5850DA00BD0F39 /* DataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B67142A5850DA00BD0F39 /* DataSourceType.swift */; };
+		8554726D2A5999490034C46A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554726C2A5999490034C46A /* Color+Extensions.swift */; };
+		85CB8E9E2A58AB59003B18B5 /* AddTimeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8E9D2A58AB59003B18B5 /* AddTimeEventView.swift */; };
+		85CB8EA12A58AD7F003B18B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8EA02A58AD7F003B18B5 /* CustomTextField.swift */; };
+		85CB8EA42A58AFDF003B18B5 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB8EA32A58AFDF003B18B5 /* UIScreen+Extensions.swift */; };
 		85EEBA132A582CC700B010E5 /* TimePalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEBA122A582CC700B010E5 /* TimePalApp.swift */; };
 		85EEBA152A582CC700B010E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEBA142A582CC700B010E5 /* ContentView.swift */; };
 		85EEBA172A582CC800B010E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EEBA162A582CC800B010E5 /* Assets.xcassets */; };
@@ -16,6 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8544097D2A5C03C800517F42 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
+		8544097F2A5C1F0100517F42 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		854409812A5C1FC900517F42 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		854B670E2A584F8C00BD0F39 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		854B67112A584FDC00BD0F39 /* TimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEvent.swift; sourceTree = "<group>"; };
+		854B67142A5850DA00BD0F39 /* DataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceType.swift; sourceTree = "<group>"; };
+		8554726C2A5999490034C46A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		85CB8E9D2A58AB59003B18B5 /* AddTimeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeEventView.swift; sourceTree = "<group>"; };
+		85CB8EA02A58AD7F003B18B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		85CB8EA32A58AFDF003B18B5 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		85EEBA0F2A582CC700B010E5 /* TimePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EEBA122A582CC700B010E5 /* TimePalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePalApp.swift; sourceTree = "<group>"; };
 		85EEBA142A582CC700B010E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +56,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		854B670D2A584F4C00BD0F39 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				85EEBA1D2A582CC800B010E5 /* TimePal.xcdatamodeld */,
+				854B67102A584FD300BD0F39 /* Models */,
+				85EEBA1B2A582CC800B010E5 /* Persistence.swift */,
+				854B670E2A584F8C00BD0F39 /* DataSource.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		854B67102A584FD300BD0F39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				854B67112A584FDC00BD0F39 /* TimeEvent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		854B67132A5850CE00BD0F39 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				854B67142A5850DA00BD0F39 /* DataSourceType.swift */,
+				85CB8EA02A58AD7F003B18B5 /* CustomTextField.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		85CB8E9F2A58AD6D003B18B5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		85CB8EA22A58AFD3003B18B5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85CB8EA32A58AFDF003B18B5 /* UIScreen+Extensions.swift */,
+				8554726C2A5999490034C46A /* Color+Extensions.swift */,
+				8544097D2A5C03C800517F42 /* Binding+Extensions.swift */,
+				8544097F2A5C1F0100517F42 /* Date+Extensions.swift */,
+				854409812A5C1FC900517F42 /* Int+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		85EEBA062A582CC700B010E5 = {
 			isa = PBXGroup;
 			children = (
@@ -55,12 +122,15 @@
 		85EEBA112A582CC700B010E5 /* TimePal */ = {
 			isa = PBXGroup;
 			children = (
+				85CB8EA22A58AFD3003B18B5 /* Extensions */,
+				85CB8E9F2A58AD6D003B18B5 /* Components */,
+				854B67132A5850CE00BD0F39 /* Enums */,
+				854B670D2A584F4C00BD0F39 /* Persistence */,
 				85EEBA122A582CC700B010E5 /* TimePalApp.swift */,
 				85EEBA142A582CC700B010E5 /* ContentView.swift */,
 				85EEBA162A582CC800B010E5 /* Assets.xcassets */,
-				85EEBA1B2A582CC800B010E5 /* Persistence.swift */,
-				85EEBA1D2A582CC800B010E5 /* TimePal.xcdatamodeld */,
 				85EEBA182A582CC800B010E5 /* Preview Content */,
+				85CB8E9D2A58AB59003B18B5 /* AddTimeEventView.swift */,
 			);
 			path = TimePal;
 			sourceTree = "<group>";
@@ -143,10 +213,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854B67152A5850DA00BD0F39 /* DataSourceType.swift in Sources */,
 				85EEBA1F2A582CC800B010E5 /* TimePal.xcdatamodeld in Sources */,
 				85EEBA1C2A582CC800B010E5 /* Persistence.swift in Sources */,
+				854409802A5C1F0100517F42 /* Date+Extensions.swift in Sources */,
 				85EEBA152A582CC700B010E5 /* ContentView.swift in Sources */,
+				854B670F2A584F8C00BD0F39 /* DataSource.swift in Sources */,
 				85EEBA132A582CC700B010E5 /* TimePalApp.swift in Sources */,
+				85CB8E9E2A58AB59003B18B5 /* AddTimeEventView.swift in Sources */,
+				85CB8EA42A58AFDF003B18B5 /* UIScreen+Extensions.swift in Sources */,
+				854B67122A584FDC00BD0F39 /* TimeEvent.swift in Sources */,
+				8544097E2A5C03C800517F42 /* Binding+Extensions.swift in Sources */,
+				854409822A5C1FC900517F42 /* Int+Extensions.swift in Sources */,
+				8554726D2A5999490034C46A /* Color+Extensions.swift in Sources */,
+				85CB8EA12A58AD7F003B18B5 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

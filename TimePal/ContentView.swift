@@ -9,80 +9,157 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    
+    @State var showAddSheet: Bool = false
+    
+    @ObservedObject private var dataSource: DataSource
+    
+    init(dataSource: DataSource = DataSource.shared) {
+        self.dataSource = dataSource
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let timeEvent = dataSource.timeEventsArray[index]
+            dataSource.delete(timeEvent: timeEvent)
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            VStack {
+                LazyVGrid (columns: [GridItem(), GridItem(), GridItem()], spacing: 15) {
+                    ForEach(dataSource.timeEventsArray.filter { $0.isStreak }) { timeEvent in
+                        VStack (spacing: 5) {
+                            
+                            ZStack {
+                                Circle()
+                                    .fill(Color(hex: timeEvent.color)!.gradient)
+                                VStack(spacing: 2) {
+                                    Text((timeEvent.isStreak ? timeEvent.date.countup() : timeEvent.date.countdown()).toString())
+                                        .bold()
+                                        .font(.title2)
+                                    Text("DAYS")
+                                        .font(.subheadline)
+                                }
+                                .minimumScaleFactor(0.1)
+                            }
+                            .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
+                            .frame(height: UIScreen.screenWidth / 4)
+                            
+                            
+                            VStack(alignment: .center, spacing: 5) {
+                                
+                                HStack {
+                                    Text(timeEvent.name)
+                                        .font(.subheadline)
+                                        .minimumScaleFactor(0.1)
+                                        .truncationMode(.tail)
+                                    Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
+                                        .font(.subheadline)
+                                }
+                                
+                                Text(timeEvent.date.formatAsDate())
+                                    .font(.caption)
+                                    .minimumScaleFactor(0.1)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                            }
+                            
+                            
+                        }
+                        .frame(width: UIScreen.screenWidth / 4)
+                    }
+                }.padding()
+                List {
+                    ForEach(dataSource.timeEventsArray.filter { !$0.isStreak }) { timeEvent in
+                        HStack (spacing: 15) {
+                            
+                            ZStack {
+                                Circle()
+                                    .fill(Color(hex: timeEvent.color)!.gradient)
+                                VStack(spacing: 2) {
+                                    Text((timeEvent.isStreak ? timeEvent.date.countup() : timeEvent.date.countdown()).toString())
+                                        .bold()
+                                        .font(.subheadline)
+                                    Text("DAYS")
+                                        .font(.footnote)
+                                }
+                                .minimumScaleFactor(0.1)
+                            }
+                            .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
+                            
+                            VStack(alignment: .leading, spacing: 7.5) {
+                                
+                                Text(timeEvent.name)
+                                    .font(.title2)
+                                    .minimumScaleFactor(0.1)
+                                    .truncationMode(.tail)
+                                
+                                Text(timeEvent.date.formatAsDate())
+                                    .font(.subheadline)
+                                    .minimumScaleFactor(0.1)
+                                    .truncationMode(.tail)
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
+                                .font(.title)
+                            
+                        }
+                        .frame(height: 60)
+                        .listRowSeparator(.hidden)
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button (role: .destructive) {
+                                withAnimation {
+                                    dataSource.delete(timeEvent: timeEvent)
+                                }
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                            
+                            Button () {} label: {
+                                Image(systemName: "pencil")
+                            }
+                            .tint(Color("LightOrange"))
+                        }
+                        .swipeActions (edge: .leading, allowsFullSwipe: true) {
+                            Button {
+                                var updatedTimeEvent: TimeEvent = timeEvent
+                                updatedTimeEvent.isPinned.toggle()
+                                withAnimation {
+                                    dataSource.updateAndSave(timeEvent: updatedTimeEvent)
+                                }
+                            } label: {
+                                Image(systemName: "pin")
+                            }
+                            .tint(Color("DarkBlue"))
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .listStyle(.plain)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: {
+                        showAddSheet.toggle()
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color("DarkOrange"))
+                    })
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+        .sheet(isPresented: $showAddSheet) {
+            AddTimeEventView(isPresented: $showAddSheet)
+                .presentationDetents([.fraction(0.50)])
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
