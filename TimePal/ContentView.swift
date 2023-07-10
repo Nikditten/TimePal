@@ -51,7 +51,7 @@ struct ContentView: View {
                                 })
                             }
                     }
-                }
+                }.padding(.bottom)
                 List {
                     ForEach(dataSource.timeEventsArray.filter { !$0.isPinned }) { timeEvent in
                         ListedTimeEvent(timeEvent: timeEvent)
@@ -95,6 +95,7 @@ struct ContentView: View {
                     })
                 }
             }
+            .navigationTitle(Date().greet())
         }
         .sheet(isPresented: $showAddSheet) {
             AddTimeEventView(isPresented: $showAddSheet)
