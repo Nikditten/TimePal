@@ -19,9 +19,13 @@ struct PinnedTimeEvent: View {
                 Circle()
                     .fill(Color(hex: timeEvent.color)!.gradient)
                 VStack(spacing: 2) {
+                    Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
+                        .font(.subheadline)
+                    
                     Text((timeEvent.isStreak ? timeEvent.date.countup() : timeEvent.date.countdown()).toString())
                         .bold()
                         .font(.title2)
+                    
                     Text("DAYS")
                         .font(.subheadline)
                 }
@@ -33,14 +37,11 @@ struct PinnedTimeEvent: View {
             
             VStack(alignment: .center, spacing: 5) {
                 
-                HStack {
-                    Text(timeEvent.name)
-                        .font(.subheadline)
-                        .minimumScaleFactor(0.1)
-                        .truncationMode(.tail)
-                    Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
-                        .font(.subheadline)
-                }
+                Text(timeEvent.name)
+                    .font(.subheadline)
+                    .minimumScaleFactor(0.1)
+                    .truncationMode(.tail)
+                    .lineLimit(1)
                 
                 Text(timeEvent.date.formatAsDate())
                     .font(.caption)
@@ -48,6 +49,7 @@ struct PinnedTimeEvent: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
             }
+            .frame(height: 50)
             
             
         }
