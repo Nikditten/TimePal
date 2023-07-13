@@ -37,8 +37,6 @@ struct ListedTimeEvent: View {
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
                     .lineLimit(1)
-                
-                Spacer()
             }
             
             Spacer()

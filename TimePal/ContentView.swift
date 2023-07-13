@@ -26,7 +26,8 @@ struct ContentView: View {
                                      GridItem(.flexible())]) {
                     ForEach(dataSource.timeEventsArray.filter { $0.isPinned }) { timeEvent in
                         PinnedTimeEvent(timeEvent: timeEvent)
-                            .padding(5)
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
                             .contextMenu {
                                 Button(action: {
                                     withAnimation {

@@ -26,7 +26,7 @@ struct DaysCount: View {
                 
                 if (isPinned) {
                     Text("DAYS")
-                        .font(.caption)
+                        .font(.footnote)
                 }
             }
             .minimumScaleFactor(0.1)

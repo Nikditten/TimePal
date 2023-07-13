@@ -22,9 +22,6 @@ struct PinnedTimeEvent: View {
                         .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
                         .padding(10)
                 }
-                .frame(height: UIScreen.screenWidth / 4)
-            
-            
             
             VStack(alignment: .center, spacing: 5) {
                 
@@ -36,17 +33,14 @@ struct PinnedTimeEvent: View {
                     .lineLimit(1)
                 
                 Text(timeEvent.date.formatAsDate())
-                    .font(.caption2)
+                    .font(.footnote)
                     .foregroundColor(.gray)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
                     .lineLimit(1)
             }
-            .frame(height: 50)
-            
-            
+            .frame(height: 40)
         }
-        .frame(width: UIScreen.screenWidth / 3)
     }
 }
 
