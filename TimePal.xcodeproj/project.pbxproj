@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		852CC5062A60302400BDAE0E /* DaysCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852CC5052A60302400BDAE0E /* DaysCount.swift */; };
 		8544097E2A5C03C800517F42 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8544097D2A5C03C800517F42 /* Binding+Extensions.swift */; };
 		854409802A5C1F0100517F42 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8544097F2A5C1F0100517F42 /* Date+Extensions.swift */; };
 		854409822A5C1FC900517F42 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854409812A5C1FC900517F42 /* Int+Extensions.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		852CC5052A60302400BDAE0E /* DaysCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCount.swift; sourceTree = "<group>"; };
 		8544097D2A5C03C800517F42 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		8544097F2A5C1F0100517F42 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		854409812A5C1FC900517F42 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852CC5042A60301900BDAE0E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				852CC5052A60302400BDAE0E /* DaysCount.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		854B670D2A584F4C00BD0F39 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		85CB8E9F2A58AD6D003B18B5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				852CC5042A60301900BDAE0E /* Common */,
 				85C9D2072A5C6A1800BACC6F /* PinnedTimeEvent.swift */,
 				85C9D2092A5C6A5A00BACC6F /* ListedTimeEvent.swift */,
 			);
@@ -233,6 +244,7 @@
 				854B67122A584FDC00BD0F39 /* TimeEvent.swift in Sources */,
 				8544097E2A5C03C800517F42 /* Binding+Extensions.swift in Sources */,
 				854409822A5C1FC900517F42 /* Int+Extensions.swift in Sources */,
+				852CC5062A60302400BDAE0E /* DaysCount.swift in Sources */,
 				8554726D2A5999490034C46A /* Color+Extensions.swift in Sources */,
 				85CB8EA12A58AD7F003B18B5 /* CustomTextField.swift in Sources */,
 			);

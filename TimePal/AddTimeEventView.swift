@@ -30,11 +30,7 @@ struct AddTimeEventView: View {
                     TextField("Name", text: $newTimeEvent.name)
                         .keyboardType(.default)
                     
-                    Toggle("Streak", isOn: $newTimeEvent.isStreak)
-                }
-                
-                Section {
-                    DatePicker(newTimeEvent.isStreak ? "Streak starts" : "Countdown to", selection: $newTimeEvent.date, displayedComponents: .date)
+                    DatePicker("Countdown to", selection: $newTimeEvent.date, displayedComponents: .date)
                 }
                 
                 Section {

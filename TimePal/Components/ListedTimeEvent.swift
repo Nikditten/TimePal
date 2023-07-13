@@ -12,39 +12,34 @@ struct ListedTimeEvent: View {
     var timeEvent: TimeEvent
     
     var body: some View {
-        HStack (spacing: 15) {
+        HStack (spacing: 10) {
             
-            ZStack {
-                Circle()
-                    .fill(Color(hex: timeEvent.color)!.gradient)
-                VStack(spacing: 2) {
-                    Text((timeEvent.isStreak ? timeEvent.date.countup() : timeEvent.date.countdown()).toString())
-                        .bold()
-                        .font(.subheadline)
-                    Text("DAYS")
-                        .font(.footnote)
+            Circle()
+                .fill(Color(hex: timeEvent.color)!.gradient)
+                .overlay {
+                    DaysCount(dayCount: timeEvent.date.countdown(), isPinned: timeEvent.isPinned)
+                        .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
+                        .padding(10)
                 }
-                .minimumScaleFactor(0.1)
-            }
-            .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
             
-            VStack(alignment: .leading, spacing: 7.5) {
+            VStack(alignment: .leading, spacing: 2) {
                 
                 Text(timeEvent.name)
-                    .font(.title2)
+                    .bold()
+                    .font(.subheadline)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
                 
                 Text(timeEvent.date.formatAsDate())
-                    .font(.subheadline)
+                    .font(.caption)
+                    .foregroundColor(.gray)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
+                
+                Spacer()
             }
             
             Spacer()
-            
-            Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
-                .font(.title)
             
         }
         .frame(height: 60)

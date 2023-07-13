@@ -125,6 +125,7 @@ extension TimeEvent {
         self.isStreak = timeEventMO.isStreak
         self.color = timeEventMO.color ?? "#FFFFFF"
         self.isPinned = timeEventMO.isPinned
+        self.created = timeEventMO.created ?? Date()
     }
 }
 

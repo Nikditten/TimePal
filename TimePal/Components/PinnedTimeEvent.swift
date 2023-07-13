@@ -18,18 +18,8 @@ struct PinnedTimeEvent: View {
             ZStack {
                 Circle()
                     .fill(Color(hex: timeEvent.color)!.gradient)
-                VStack(spacing: 2) {
-                    Image(systemName: timeEvent.isStreak ? "arrow.up" : "arrow.down")
-                        .font(.subheadline)
-                    
-                    Text((timeEvent.isStreak ? timeEvent.date.countup() : timeEvent.date.countdown()).toString())
-                        .bold()
-                        .font(.title2)
-                    
-                    Text("DAYS")
-                        .font(.subheadline)
-                }
-                .minimumScaleFactor(0.1)
+                
+                DaysCount(dayCount: timeEvent.date.countdown(), isPinned: timeEvent.isPinned)
             }
             .foregroundColor(Color(hex: timeEvent.color)!.isLight ? Color.black : Color.white)
             .frame(height: UIScreen.screenWidth / 4)

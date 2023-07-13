@@ -7,14 +7,16 @@ struct TimeEvent: Identifiable, Hashable {
     var isStreak: Bool
     var color: String
     var isPinned: Bool
+    var created: Date
     
-    init(name: String = "", date: Date = Date(), isStreak: Bool = false, color: String = Color("DarkOrange").toHex()!, isPinned: Bool = false) {
+    init(name: String = "", date: Date = Date(), isStreak: Bool = false, color: String = Color("DarkOrange").toHex()!, isPinned: Bool = false, created: Date = Date()) {
         self.id = UUID()
         self.name = name
         self.date = date
         self.isStreak = isStreak
         self.color = color
         self.isPinned = isPinned
+        self.created = created
     }
 }
 
