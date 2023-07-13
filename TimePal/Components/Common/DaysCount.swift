@@ -22,12 +22,11 @@ struct DaysCount: View {
             VStack (spacing: 2) {
                 Text(dayCount.toString())
                     .bold()
-                    .font(.title)
-                    //.font(isPinned ? .title2 : .system(size: dayCount.textSize()))
+                    .font(.largeTitle)
                 
                 if (isPinned) {
                     Text("DAYS")
-                        .font(.subheadline)
+                        .font(.caption)
                 }
             }
             .minimumScaleFactor(0.1)

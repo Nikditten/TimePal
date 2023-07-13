@@ -22,19 +22,21 @@ struct ListedTimeEvent: View {
                         .padding(10)
                 }
             
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 5) {
                 
                 Text(timeEvent.name)
                     .bold()
                     .font(.subheadline)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
+                    .lineLimit(1)
                 
                 Text(timeEvent.date.formatAsDate())
                     .font(.caption)
                     .foregroundColor(.gray)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
+                    .lineLimit(1)
                 
                 Spacer()
             }
@@ -42,7 +44,7 @@ struct ListedTimeEvent: View {
             Spacer()
             
         }
-        .frame(height: 60)
+        .frame(height: 50)
         .listRowSeparator(.hidden)
     }
 }
